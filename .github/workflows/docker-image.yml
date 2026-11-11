@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Azure Container Registry Login
-      uses: Azure/docker-login@v1
+      uses: Azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0 # v1
       with:
         # Container registry username
         username: ${{ secrets.ACR_USERNAME }}
@@ -22,7 +22,7 @@ jobs:
         # Container registry server url
         login-server: ${{ secrets.ACR_LOGIN_SERVER }}
         
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
     - name: Build the Docker image
       run:         
         docker build . --file WebApp.Dockerfile --tag fruoccopublic.azurecr.io/sample-app-aoai-chatgpt:$(date +'%Y-%m-%d')_$GITHUB_RUN_NUMBER;
